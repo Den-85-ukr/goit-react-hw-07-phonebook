@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import contactOperations from '../../redux/contact/contact-operations';
+import contactSelectors from '../../redux/contact/contact-selectors';
 
 import styles from './ContactForm.module.scss';
 
@@ -83,8 +84,8 @@ ContactForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-  contacts: state.contacts.items,
+const mapStateToProps = state => ({
+  contacts: contactSelectors.getAllContacts(state),
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
+import contactSelectors from '../../redux/contact/contact-selectors';
 import contactOperations from '../../redux/contact/contact-operations';
 import ListItem from "../ListItem";
 
@@ -40,18 +41,9 @@ ContactList.propTypes = {
   contacts: PropTypes.arrayOf.isRequired,
 };
 
-const getVisibleContact = (allContacts, filter) => {
-  const normalizedFilter = filter.toLowerCase();
-  return allContacts.filter((contact) =>
-    contact.name.toLowerCase().includes(normalizedFilter)
-  );
-};
-
-const mapStateToProps = ({ contacts: { items, filter } }) => {
-  const visivbleContacts = getVisibleContact(items, filter);
-
+const mapStateToProps = state => {
   return {
-    contacts: visivbleContacts,
+    contacts: contactSelectors.getVisibleContact(state),
   };
 };
 

@@ -24,7 +24,7 @@ const deleteContactRequest = createAction('contacts/deleteContactRequest');
 const deleteContactSuccess = createAction('contacts/deleteContactSuccess');
 const deleteContactError = createAction('contacts/deleteContactError');
 
-const filter = createAction("contact/filter");
+const changeFilter = createAction('contact/changeFilter');
 
 const contactActions = {
   fetchContactRequest,
@@ -36,7 +36,7 @@ const contactActions = {
   deleteContactRequest,
   deleteContactSuccess,
   deleteContactError,
-  filter,
+  changeFilter,
 };
 
 export default contactActions;
