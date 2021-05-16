@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
+
 import styles from './ListItem.module.scss';
 
 class ListItem extends Component {
@@ -23,7 +24,7 @@ class ListItem extends Component {
 ListItem.propTypes = {
   name: PropTypes.string.isRequired,
   number: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   onDeleteItem: PropTypes.func.isRequired,
 };
 
